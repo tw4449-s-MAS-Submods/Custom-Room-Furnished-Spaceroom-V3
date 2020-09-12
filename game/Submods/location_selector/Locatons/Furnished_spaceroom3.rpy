@@ -46,7 +46,6 @@ init -1 python:
 
         # mapping of filters to MASWeatherMaps
         MASFilterWeatherMap(
-            #NOTE: IF ANY OF THESE DON'T HAVE A CORRESPONDING IMAGE AND WISH TO USE THE SAME IMAGE AS CLEAR WEATHER USES, JUST DON'T INCLUDE THE PRECIP TYPE AT ALL
             day=MASWeatherMap({
                 store.mas_weather.PRECIP_TYPE_DEF: "submod_background_Furnished_spaceroom3_day",
                 store.mas_weather.PRECIP_TYPE_RAIN: "submod_background_Furnished_spaceroom3_rain",
@@ -67,7 +66,6 @@ init -1 python:
             }),
         ),
 
-        #NOTE: YOU DO NOT NEED TO TOUCH THIS
         MASBackgroundFilterManager(
             MASBackgroundFilterChunk(
                 False,
@@ -107,7 +105,6 @@ init -1 python:
             )
         ),
 
-        #FOR BACKGROUND PROPERTIES (DON'T TOUCH "ENTRY_PP:/EXIT_PP:)
         disable_progressive=False,
         hide_masks=False,
         hide_calendar=False,
@@ -192,7 +189,8 @@ init 5 python:
             persistent.event_database,
             eventlabel="bg_room_installed",
             conditional="True",
-            action=EV_ACT_QUEUE
+            action=EV_ACT_QUEUE,
+            aff_range=(mas_aff.ENAMORED, None)
         )
     )
 
