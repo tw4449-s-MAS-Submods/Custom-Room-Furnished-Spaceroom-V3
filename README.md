@@ -7,9 +7,9 @@ This submod adds a homey take on the Spaceroom for you and Monika.
 
 ## Instructions:
 
-1. Go to the "Releases" tab on the right this webpage(or click [HERE](https://github.com/tw4449/Custom-Room-Furnished_Spaceroom_V3/releases)), then click on the latest version of "Furnished_Spaceroom_V3". It should begin automatically downloading.
-2. Unzip and open the folder called 'Furnished_Spaceroom_V3' (it should be in your 'Downloads' folder).
-3. From the Furnished_Spaceroom_V3 folder, copy the 'game' and 'lib' folders into the main
+1. Go to the "Releases" tab on the right this webpage(or click [HERE](https://github.com/tw4449/Custom-Room-Furnished_Spaceroom_V3/releases)), then click on the latest version of "Custom Room Furnished Spaceroom V3". To download click on Source code (zip) to begin .
+2. Unzip and open the folder called 'Custom-Room-Furnished-Spaceroom-V3' (it should be in your 'Downloads' folder).
+3. From the Custom-Room-Furnished-Spaceroom-V3 folder, copy the 'game' and 'lib' folders into the main
    'Doki Doki Literature Club' folder (AKA, the folder where you see 'DDLC.exe').
 4. If you have 400+ affection: Launch MAS, and the room will be available. Monika will explain how to use it after a minute or so. If you have less than 400 affection: Launch MAS, and Monika should comment you added it, but you can't use it just yet. Once you reach 400 affection, you can find the room under "Hey, Monika..." > "Location" > "Can we go somewhere else?".
 
