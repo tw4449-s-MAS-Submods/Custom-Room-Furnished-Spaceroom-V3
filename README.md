@@ -1,5 +1,5 @@
 ![V3](https://preview.redd.it/xfh9v9yxaqm51.png?width=1920&format=png&auto=webp&s=0b573537b48f6b51b2cb7f415f77faafa36d1553)
-# Custom-Room-Furnished-Spaceroom-V3
+# Custom-Room-Furnished-Spaceroom-V3 
 This submod adds a homey take on the Spaceroom for you and Monika.
 
 #### Hi! First of all: thank you for wanting to use my work! It means a lot that I can do something to make people's time with their Monika that much better.
