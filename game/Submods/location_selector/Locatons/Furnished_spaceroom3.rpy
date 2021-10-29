@@ -37,6 +37,30 @@ image submod_background_Furnished_spaceroom3_rain_ss = "mod_assets/location/Spac
 image submod_background_Furnished_spaceroom3_overcast_ss = "mod_assets/location/Spaceroom V3.1/V3.1_overcast-ss.png"
 image submod_background_Furnished_spaceroom3_snow_ss = "mod_assets/location/Spaceroom V3.1/V3.1_snow-ss.png"
 
+init 501 python:
+    MASImageTagDecoDefinition.register_img(
+        "mas_o31_ceiling_lights",
+        submod_background_Furnished_spaceroom3.background_id,
+        MASAdvancedDecoFrame(zorder=5)
+    )
+
+    MASImageTagDecoDefinition.register_img(
+        "mas_o31_ceiling_deco",
+        submod_background_Furnished_spaceroom3.background_id,
+        MASAdvancedDecoFrame(zorder=6)
+    )
+
+    MASImageTagDecoDefinition.register_img(
+        "mas_o31_window_ghost",
+        submod_background_Furnished_spaceroom3.background_id,
+        MASAdvancedDecoFrame(zorder=4)
+    )
+
+    MASImageTagDecoDefinition.register_img(
+        "mas_o31_vignette",
+        submod_background_Furnished_spaceroom3.background_id,
+        MASAdvancedDecoFrame(zorder=21) #21 to be in front of all cgs
+    )
 
 init -1 python:
     submod_background_Furnished_spaceroom3 = MASFilterableBackground(
@@ -318,7 +342,7 @@ label monika_players_control_override:
 
     $ persistent._seen_ever["monika_players_control"] = True
     return
-    
+
 
 init 1 python:
     config.label_overrides["monika_gotomonika"] = "monika_gotomonika_override"
