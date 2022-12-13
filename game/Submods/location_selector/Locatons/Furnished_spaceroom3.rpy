@@ -4,7 +4,7 @@ init -990 python:
         author="tw4449 Cdino112 multimokia d3adpan Booplicate",
         name="Custom Room Furnished Spaceroom V3",
         description="This submod adds a homey take on the Spaceroom for you and Monika.",
-        version="1.0.7.1"
+        version="1.0.8"
     )
 
 # Register the updater
@@ -37,10 +37,79 @@ image submod_background_Furnished_spaceroom3_rain_ss = "mod_assets/location/Spac
 image submod_background_Furnished_spaceroom3_overcast_ss = "mod_assets/location/Spaceroom V3.1/V3.1_overcast-ss.png"
 image submod_background_Furnished_spaceroom3_snow_ss = "mod_assets/location/Spaceroom V3.1/V3.1_snow-ss.png"
 
-image Spaceroom V3_d25_deco = ConditionSwitch(
+image V3_d25_deco = ConditionSwitch(
     "mas_current_background.isFltDay()", "mod_assets/location/Spaceroom V3.1/deco/d25/deco.png",
     "True", "mod_assets/location/Spaceroom V3.1/deco/d25/deco-n.png"
 )
+
+
+    #0 gifts is blank
+#1-3 gifts gets you part 1
+#4 gifts gets you part 2
+#5+ gifts get you part 3
+image V3mas_d25_gifts = ConditionSwitch(
+    "len(persistent._mas_d25_gifts_given) == 0", "mod_assets/location/Spaceroom V3.1/deco/d25/V3gifts_0.png",
+    "0 < len(persistent._mas_d25_gifts_given) < 3", "V3mas_d25_gifts_1",
+    "3 <= len(persistent._mas_d25_gifts_given) <= 4", "V3mas_d25_gifts_2",
+    "True", "V3mas_d25_gifts_3"
+)
+
+image V3mas_d25_gifts_1 = MASFilterSwitch(
+    "mod_assets/location/Spaceroom V3.1/deco/d25/V3gifts_1.png"
+)
+
+image V3mas_d25_gifts_2 = MASFilterSwitch(
+    "mod_assets/location/Spaceroom V3.1/deco/d25/V3gifts_2.png"
+)
+
+image V3mas_d25_gifts_3 = MASFilterSwitch(
+    "mod_assets/location/Spaceroom V3.1/deco/d25/V3gifts_3.png"
+)
+
+
+
+
+image V3mas_d25_tree = ConditionSwitch(
+    "mas_isNightNow()", ConditionSwitch(
+        "persistent._mas_disable_animations", "mod_assets/location/Spaceroom V3.1/deco/d25/V3tree_lights_on_1.png",
+        "not persistent._mas_disable_animations", "V3mas_d25_night_tree_lights_atl"
+    ),
+    "True", MASFilterSwitch(
+        "mod_assets/location/Spaceroom V3.1/deco/d25/V3tree_lights_off.png"
+    )
+)
+
+image V3mas_d25_night_tree_lights_atl:
+    block:
+        "mod_assets/location/Spaceroom V3.1/deco/d25/V3tree_lights_on_1.png"
+        1.5
+        "mod_assets/location/Spaceroom V3.1/deco/d25/V3tree_lights_on_2.png"
+        1.5
+        "mod_assets/location/Spaceroom V3.1/deco/d25/V3tree_lights_on_3.png"
+        1.5
+    repeat
+
+
+
+
+image V3mas_d25_lights = ConditionSwitch(
+    "mas_isNightNow()", ConditionSwitch(
+        "persistent._mas_disable_animations", "mod_assets/Spaceroom V3.1/deco/d25/V3lights_on_1.png",
+        "not persistent._mas_disable_animations", "V3mas_d25_night_lights_atl"
+    ),
+    "True", MASFilterSwitch("mod_assets/location/Spaceroom V3.1/deco/d25/V3lights_off.png")
+)
+
+image V3mas_d25_night_lights_atl:
+    block:
+        "mod_assets/location/Spaceroom V3.1/deco/d25/V3lights_on_1.png"
+        0.5
+        "mod_assets/location/Spaceroom V3.1/deco/d25/V3lights_on_2.png"
+        0.5
+        "mod_assets/location/Spaceroom V3.1/deco/d25/V3lights_on_3.png"
+        0.5
+    repeat
+
 
 init 501 python:
     MASImageTagDecoDefinition.register_img(
@@ -71,8 +140,31 @@ init 501 python:
         "mas_d25_tree",
         submod_background_Furnished_spaceroom3.background_id,
         MASAdvancedDecoFrame(zorder=5),
-        replace_tag="Spaceroom V3_d25_deco"
+        replace_tag="V3mas_d25_tree"
     )
+
+    MASImageTagDecoDefinition.register_img(
+        "mas_d25_gifts",
+        submod_background_Furnished_spaceroom3.background_id,
+        MASAdvancedDecoFrame(zorder=6),
+        replace_tag="V3mas_d25_gifts"
+    )
+
+    MASImageTagDecoDefinition.register_img(
+        "mas_d25_lights",
+        submod_background_Furnished_spaceroom3.background_id,
+        MASAdvancedDecoFrame(zorder=5),
+        replace_tag="V3mas_d25_lights"
+    )
+
+    MASImageTagDecoDefinition.register_img(
+        "mas_d25_garlands",
+        submod_background_Furnished_spaceroom3.background_id,
+        MASAdvancedDecoFrame(zorder=4),
+        replace_tag="V3_d25_deco"
+    )
+
+
 
 init -1 python:
     submod_background_Furnished_spaceroom3 = MASFilterableBackground(
