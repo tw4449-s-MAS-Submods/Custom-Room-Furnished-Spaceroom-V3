@@ -4,7 +4,7 @@ init -990 python:
         author="tw4449 Cdino112 multimokia d3adpan Booplicate",
         name="Custom Room Furnished Spaceroom V3",
         description="This submod adds a homey take on the Spaceroom for you and Monika.",
-        version="1.0.8.1"
+        version="1.0.8.2"
     )
 
 # Register the updater
@@ -12,7 +12,7 @@ init -989 python:
     if store.mas_submod_utils.isSubmodInstalled("Submod Updater Plugin"):
         store.sup_utils.SubmodUpdater(
             submod="Custom Room Furnished Spaceroom V3",
-            user_name="tw4449",
+            user_name="tw4449-s-MAS-Submods",
             repository_name="Custom-Room-Furnished-Spaceroom-V3",
             update_dir="",
             attachment_id=None
